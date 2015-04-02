@@ -1,9 +1,12 @@
 class BooksController < ApplicationController
 before_action :authenticate_user!, :except => 'index'
 	def index
-		@books = Book.all
+		@books = Book.all.where("title LIKE ?" , "%#{params[:search]}%")
 	end
 
+ 	def user_index
+ 		@users = User.all
+ 	end
 	def new
 		@book = Book.new
 	end
@@ -34,6 +37,11 @@ before_action :authenticate_user!, :except => 'index'
 		redirect_to books_path
 	end
 
+	def destroy_user
+		@user = User.find(params[:id])
+		@user.destroy
+		redirect_to :back
+	end
 	private
 	def book_params
 		params.require(:book).permit(:book_image, :title, :description, :category)

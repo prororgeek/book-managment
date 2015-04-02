@@ -2,18 +2,22 @@
 
   <div class="row">	
   	<% @books.each do |book| %>
-  	<div class="col-sm-3" style="border: 1px solid rgb(221, 72, 20); margin: 1px;">
-  	<h2><%= image_tag book.book_image.url(:thumb), :class => 'index_book_image'%></h2>
-  	<h3>Title -<%= link_to book.title, show_book_book_path(book)  %></h3>
-  	<h5>Description -<%= book.description %></h5>
-  	<h5>Category -<%= book.category %></h5>
-  	<% if current_user.present? %>
-  	<% if current_user.id == '1' %>
-	  	<%= link_to '', show_book_book_path(book), :class => "glyphicon glyphicon-star" %>
-	    <%= link_to '', edit_book_path(:id => book.id), :class => "glyphicon glyphicon-edit" %> 
-	    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash"%>
-    <% end %>
-    <% end %>
-    </div>
+	  <div class="col-sm-3">
+	  	<div  style="border: 1px solid rgb(221, 72, 20); margin: 1px;text-align: center;">
+	  	<%=  link_to image_tag(book.book_image.url, :class => 'index_book_image') , show_book_book_path(book)%>
+	  	<h3>Title -<%= link_to book.title, show_book_book_path(book)  %></h3>
+	  	<h5>Author -<%= book.author %></h5>
+	  	
+	  	<h5>Description -<%= book.description %></h5>
+	  	<h5>Category -<%= book.category %></h5>
+	  	<% if current_user.present? %>
+	  	<% if current_user.id == 1 %>
+		  	<%= link_to '', show_book_book_path(book), :class => "glyphicon glyphicon-star" %>
+		    <%= link_to '', edit_book_path(:id => book.id), :class => "glyphicon glyphicon-edit" %> 
+		    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash"%>
+	    <% end %>
+	    <% end %>
+	    </div>
+	  </div>  
     <% end %>
   </div>

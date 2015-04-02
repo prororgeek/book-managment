@@ -13,12 +13,23 @@
 			<% if current_user.id == 1 %>
 			  <li role="presentation">  <%= link_to "Add Book", new_book_path, :style=>"color: black;" %></li>
 			  <li role="presentation"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
+			  <li role="presentation">  <%= link_to "Categories", categories_path, :style=>"color: black;" %></li>
+			  <li role="presentation">  <%= link_to "Users", user_index_books_path, :style=>"color: black;" %></li>
 		  	<% end %>
-		  	<li role="presentation" class="active" style="margin-top: 11px;"><strong style="margin-left: 780px;"><%= current_user.email %></strong></li>
-		  	<li role="presentation"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  , :style=>"color: black;" %></li>
+		  	<%= form_tag books_path ,:method => "get" ,:class=>"navbar-form navbar-left" do %>
+        <div class="form-group">
+           <%= text_field_tag :search, params[:search], :id => 'search_field'  ,:class=>"form-control" %>     
+          <!-- <input type="text" class="form-control" placeholder="Search"> -->
+        </div>
+       <%= submit_tag "Search", :name => nil ,:class=>"btn btn-default"%>  
+       <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+      	<%end%>
+		  	<li role="presentation" style=" float: right;"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  , :style=>"color: black;" %></li>
+		  	<li role="presentation" class="active" style="margin-top: 11px; float: right;"><strong ><%= current_user.email %></strong></li>
+		  	
 	  	<% else %>
-	  <li role="presentation"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %> </li>
-	  <li role="presentation"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
+	  <li role="presentation" style=" float: right;"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %> </li>
+	  <li role="presentation" style=" float: right;"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
 <% end %>  
 </ul>
 

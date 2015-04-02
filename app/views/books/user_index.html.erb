@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.email %></td>
+        <td><%= link_to '', { action: :destroy_user, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

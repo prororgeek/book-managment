@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -24,7 +26,11 @@ Rails.application.routes.draw do
         get 'edit'
         get 'show_book'
         patch 'update'
+        delete 'destroy_user'
         #patch 'update'
+      end
+      collection do
+       get 'user_index'
       end
     end
   #   resources :products do
