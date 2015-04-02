@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul class="nav nav-tabs" style="background-color: rgb(221, 72, 20);">
+ 	<% if user_signed_in? %>	
+		<li role="presentation"><%= link_to 'Home', books_path, :style=>"color: black;" %></li>
+			<% if current_user.id == 1 %>
+			  <li role="presentation">  <%= link_to "Add Book", new_book_path, :style=>"color: black;" %></li>
+			  <li role="presentation"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
+		  	<% end %>
+		  	<li role="presentation" class="active" style="margin-top: 11px;"><strong style="margin-left: 780px;"><%= current_user.email %></strong></li>
+		  	<li role="presentation"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  , :style=>"color: black;" %></li>
+	  	<% else %>
+	  <li role="presentation"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %> </li>
+	  <li role="presentation"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
+<% end %>  
+</ul>
+
+<%= yield %>
+
+</body>
+</html>
