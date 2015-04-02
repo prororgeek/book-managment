@@ -1,6 +1,6 @@
+<div style="margin-left: 40%;">
 <%= form_for @book, :url => {:controller => "books", :action => "update"}, :html => { :multipart => true }, method: :patch do |f| %>
-  <%= f.label :book_image %><br />
-  <%= f.file_field :book_image %><br />
+
   
   <%= f.label :title %><br />
   <%= f.text_field :title %><br />
@@ -9,8 +9,13 @@
   <%= f.text_field :description %><br />
   
   <%= f.label :category %><br />
-  <%= f.text_field :category %><br />
+   <%= f.select :category, options_for_select(Category.all.collect{|ct| [ct.name, ct.name]},@book.category), {:include_blank => false} %>
+
+  <%#= f.text_field :category %><br />
+    <%= f.label :book_image %><br />
+  <%= f.file_field :book_image %><br />
   
   <%= f.submit :update%>
 
 <% end %>
+</div>
