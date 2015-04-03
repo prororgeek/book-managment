@@ -81,6 +81,7 @@
 }
 .navbar-link{
 	color: white !important;
+  height: 50px;
 }
 .navbar-link:hover{
 	color: black !important;
