@@ -4,20 +4,20 @@
 <%= form_for :book, :url => books_path, :html => { :multipart => true } do |f| %>
   
   <%= f.label :title %><br />
-  <%= f.text_field :title , :class => "text_field_library"%><br />
+  <%= f.text_field :title , :class => "text_field_library", :required => 'true'%><br />
 
   <%= f.label :author %><br />
-  <%= f.text_field :author , :class => "text_field_library"%><br />
+  <%= f.text_field :author , :class => "text_field_library", :required => 'true'%><br />
 
   <%= f.label :description %><br />
-  <%= f.text_field :description, :class => "text_field_library" %><br />
+  <%= f.text_field :description, :class => "text_field_library", :required => 'true' %><br />
   
   <%= f.label :category %><br />
   <%#= f.text_field :category , :class => "text_field_library"%>
   <%= f.select :category, options_for_select(Category.all.collect{|ct| [ct.name, ct.name]}), {:include_blank => false} %><br />
 
   <%= f.label :book_image %><br />
-  <%= f.file_field :book_image, :class => "text_field_library" %><br />
+  <%= f.file_field :book_image, :class => "text_field_library", :required => 'true' %><br />
   
   <%= f.submit :save%>
 

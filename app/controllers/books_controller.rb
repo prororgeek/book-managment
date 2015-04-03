@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 before_action :authenticate_user!, :except => 'index'
 	def index
 		@books = Book.all.where("title LIKE ?" , "%#{params[:search]}%")
+		@books = Book.all.where("title LIKE ?" , "%#{params[:search]}%").where(:category => params[:category_filter]) if params[:category_filter].present?
 	end
 
  	def user_index
@@ -44,6 +45,6 @@ before_action :authenticate_user!, :except => 'index'
 	end
 	private
 	def book_params
-		params.require(:book).permit(:book_image, :title, :description, :category)
+		params.require(:book).permit(:book_image, :title, :description, :category, :author)
 	end
 end

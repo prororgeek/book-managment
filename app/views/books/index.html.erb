@@ -1,25 +1,46 @@
 <h3 style=" text-align: center;">Book List</h3>
-
-  <div class="row">	
-  	<% @books.each do |book| %>
-	  <div class="col-sm-3">
-	  	<div  style="border: 1px solid rgb(221, 72, 20); margin: 1px;text-align: center;">
-	  	<%=  link_to image_tag(book.book_image.url, :class => 'index_book_image') , show_book_book_path(book)%>
-	  	<h3>Title -<%= link_to book.title, show_book_book_path(book)  %></h3>
-	  	<h5>Author -<%= book.author %></h5>
-	  	
-	  	<h5>Description -<%= book.description %></h5>
-	  	<h5>Category -<%= book.category %></h5>
-	  	<h4 style="margin-top: 40px;">
-	  	<% if current_user.present? %>
-	  	<% if current_user.id == 1 %>
-		  	<%= link_to '', show_book_book_path(book), :class => "show_book" %>
-		    <%= link_to '', edit_book_path(:id => book.id), :class => "edit_book_link" %> 
-		    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_book"%>
-	    <% end %>
-	    <% end %>
-	    </h4>
-	    </div>
-	  </div>  
-    <% end %>
+<div id="sidebar" class="sidebar-offcanvas col-md-3">
+      <div class="col-md-12">
+        <ul class="nav nav-pills nav-stacked">
+           <div class="checkbox">
+							<%= form_tag books_path ,:method => "get" ,:class=>"navbar-form navbar-left" do %>
+								<div class="form-group">
+								<%= hidden_field_tag :search, params[:search], :id => 'search_field'  ,:class=>"form-control" %> 
+									<% Category.all.each do |category| %>
+										<% condi = false
+										condi = params[:category_filter].include? category.name if params[:category_filter].present?%>
+										<li><%=check_box_tag 'category_filter[]', category.name, condi %><%= category.name %></li>
+									<%end%>
+								</div>
+							<li class="active">
+								<%= submit_tag "Filter", :name => nil ,:class=>"btn btn-default"%>  
+							</li>
+							<%end%>
+	        </div>
+        </ul>
+      </div>
   </div>
+<div class="row col-md-9">	
+	<% @books.each do |book| %>
+  <div class="col-sm-4">
+  	<div  style="border: 1px solid rgb(221, 72, 20); margin: 1px;text-align: center;">
+  	<%=  link_to image_tag(book.book_image.url, :class => 'index_book_image') , show_book_book_path(book)%>
+  	<h3 style="word-wrap: break-word;">Title -<%= link_to book.title[0..15], show_book_book_path(book)  %></h3>
+  	<h5>Author -<%= book.author[0..25] %></h5>
+  	
+  	<h5>Description -<%= book.description[0..25] %></h5>
+  	<h5>Category -<%= book.category[0..25] %></h5>
+  	<h4 style="margin-top: 40px;">
+  	<% if current_user.present? %>
+  	<% if current_user.id == 1 %>
+	  	<%= link_to '', show_book_book_path(book), :class => "show_book" %>
+	    <%= link_to '', edit_book_path(:id => book.id), :class => "edit_book_link" %> 
+	    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_book"%>
+    <% end %>
+    <% end %>
+    </h4>
+    </div>
+  </div>  
+  <% end %>
+</div>
+
