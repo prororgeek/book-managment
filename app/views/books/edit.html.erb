@@ -1,19 +1,19 @@
-<div style="margin-left: 40%;">
+<div style="margin-left: 400px; margin-top: 15px;">
+<h3>Edit  Book</h3>
 <%= form_for @book, :url => {:controller => "books", :action => "update"}, :html => { :multipart => true }, method: :patch do |f| %>
 
-  
   <%= f.label :title %><br />
-  <%= f.text_field :title %><br />
+  <%= f.text_field :title, :style=>"width: 282px;" %><br />
 
   <%= f.label :description %><br />
-  <%= f.text_field :description %><br />
+  <%= f.text_field :description , :style=>"width: 282px;"%><br />
   
   <%= f.label :category %><br />
-   <%= f.select :category, options_for_select(Category.all.collect{|ct| [ct.name, ct.name]},@book.category), {:include_blank => false} %>
+   <%= f.select :category, options_for_select(Category.all.collect{|ct| [ct.name, ct.name]},@book.category), {:include_blank => false}, :style=>"width: 282px;" %>
 
   <%#= f.text_field :category %><br />
     <%= f.label :book_image %><br />
-  <%= f.file_field :book_image %><br />
+  <%= f.file_field :book_image , :style=>"width: 282px;"%><br />
   
   <%= f.submit :update%>
 

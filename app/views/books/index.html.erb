@@ -1,4 +1,4 @@
-<h3 style="margin-left: 500px;">Book List</h3>
+<h3 style=" text-align: center;">Book List</h3>
 
   <div class="row">	
   	<% @books.each do |book| %>
@@ -10,13 +10,15 @@
 	  	
 	  	<h5>Description -<%= book.description %></h5>
 	  	<h5>Category -<%= book.category %></h5>
+	  	<h4 style="margin-top: 40px;">
 	  	<% if current_user.present? %>
 	  	<% if current_user.id == 1 %>
-		  	<%= link_to '', show_book_book_path(book), :class => "glyphicon glyphicon-star" %>
-		    <%= link_to '', edit_book_path(:id => book.id), :class => "glyphicon glyphicon-edit" %> 
-		    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash"%>
+		  	<%= link_to '', show_book_book_path(book), :class => "show_book" %>
+		    <%= link_to '', edit_book_path(:id => book.id), :class => "edit_book_link" %> 
+		    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_book"%>
 	    <% end %>
 	    <% end %>
+	    </h4>
 	    </div>
 	  </div>  
     <% end %>

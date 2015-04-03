@@ -7,3 +7,81 @@
 .text_field_library{
 	width: 400px;
 }
+.delete_user{
+	background: url('headers/delete.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 5px;
+}
+.delete_user:hover{
+	background: url('headers/delete.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 5px;
+}
+.delete_book {
+	background: url('headers/delete.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 20px;
+}
+.delete_book:hover{
+	background: url('headers/delete.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 20px;
+}
+
+.edit_book_link{
+	background: url('headers/edit.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 20px;
+}
+.edit_book_link:hover{
+	background: url('headers/edit.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 20px;
+}
+.show_book{
+	background: url('headers/book.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 20px;
+}
+.show_book:hover{
+	background: url('headers/book.png') top center no-repeat;
+  	padding-right: 40px;
+  	padding-top: 20px;
+}
+.delete_category {
+	background: url('headers/delete.png') top center no-repeat;
+  	padding-right: 25px;
+  	padding-top: 5px;
+}
+.delete_category:hover{
+	background: url('headers/delete.png') top center no-repeat;
+  	padding-right: 25px;
+  	padding-top: 5px;
+}
+
+.edit_category_link{
+	background: url('headers/edit.png') top center no-repeat;
+  	padding-right: 25px;
+  	padding-top: 5px;
+}
+.edit_category_link:hover{
+	background: url('headers/edit.png') top center no-repeat;
+  	padding-right: 25px;
+  	padding-top: 5px;
+}
+.show_category{
+	background: url('headers/book.png') top center no-repeat;
+  	padding-right: 25px;
+  	padding-top: 5px;
+}
+.show_category:hover{
+	background: url('headers/book.png') top center no-repeat;
+  	padding-right: 25px;
+  	padding-top: 5px;
+}
+.navbar-link{
+	color: white !important;
+}
+.navbar-link:hover{
+	color: black !important;
+}

@@ -8,13 +8,13 @@
 </head>
 <body>
 <ul class="nav nav-tabs" style="background-color: rgb(221, 72, 20);">
- 	<% if user_signed_in? %>	
-		<li role="presentation"><%= link_to 'Home', books_path, :style=>"color: black;" %></li>
+		<li role="presentation"><%= link_to 'Home', books_path , :class => 'navbar-link'%></li>
+ 		<% if user_signed_in? %>	
 			<% if current_user.id == 1 %>
-			  <li role="presentation">  <%= link_to "Add Book", new_book_path, :style=>"color: black;" %></li>
-			  <li role="presentation"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
-			  <li role="presentation">  <%= link_to "Categories", categories_path, :style=>"color: black;" %></li>
-			  <li role="presentation">  <%= link_to "Users", user_index_books_path, :style=>"color: black;" %></li>
+			  <li role="presentation">  <%= link_to "Add Book", new_book_path , :class => 'navbar-link'%></li>
+			  <li role="presentation"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'  %></li>
+			  <li role="presentation">  <%= link_to "Categories", categories_path , :class => 'navbar-link'%></li>
+			  <li role="presentation">  <%= link_to "Users", user_index_books_path, :class => 'navbar-link' %></li>
 		  	<% end %>
 		  	<%= form_tag books_path ,:method => "get" ,:class=>"navbar-form navbar-left" do %>
         <div class="form-group">
@@ -24,12 +24,12 @@
        <%= submit_tag "Search", :name => nil ,:class=>"btn btn-default"%>  
        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
       	<%end%>
-		  	<li role="presentation" style=" float: right;"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  , :style=>"color: black;" %></li>
-		  	<li role="presentation" class="active" style="margin-top: 11px; float: right;"><strong ><%= current_user.email %></strong></li>
+		  	<li role="presentation" style=" float: right;"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+		  	<li role="presentation" class="active" style="margin-top: 11px; float: right;"><strong class = 'navbar-link' ><%= current_user.email %></strong></li>
 		  	
 	  	<% else %>
-	  <li role="presentation" style=" float: right;"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' , :style=>"color: black;" %> </li>
-	  <li role="presentation" style=" float: right;"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' , :style=>"color: black;" %></li>
+	  <li role="presentation" style=" float: right;"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'%> </li>
+	  <li role="presentation" style=" float: right;"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
 <% end %>  
 </ul>
 
