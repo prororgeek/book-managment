@@ -15,7 +15,7 @@
       <tr>
         <td><%= u.name %></td>
         <td><%= u.email %></td>
-        <td><%= link_to '', { action: :destroy_user, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_user"%></td>
+        <td><%= link_to '', { action: :destroy_user, id: u.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_user", :title => 'delete user'%></td>
       </tr>
      <% end %> 
     <% end %>

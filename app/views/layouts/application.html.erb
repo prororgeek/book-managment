@@ -16,6 +16,7 @@
 			  <li role="presentation">  <%= link_to "Categories", categories_path , :class => 'navbar-link'%></li>
 			  <li role="presentation">  <%= link_to "Users", user_index_books_path, :class => 'navbar-link' %></li>
 		  	<% end %>
+<<<<<<< HEAD
 		  	<%= form_tag books_path ,:method => "get" ,:class=>"navbar-form navbar-left" do %>
         <div class="form-group">
            <%= text_field_tag :search, params[:search], :id => 'search_field'  ,:class=>"form-control" %>     
@@ -23,6 +24,14 @@
         </div>
        <%= submit_tag "Search", :name => nil ,:class=>"btn btn-default"%>  
        	<%end%>
+=======
+			<%= form_tag books_path ,:method => "get" ,:class=>"navbar-form navbar-left" do %>
+				<div class="form-group">
+					<%= text_field_tag :search, params[:search], :id => 'search_field'  ,:class=>"form-control" %> 
+				</div>
+				<%= submit_tag "Search", :name => nil ,:class=>"btn btn-default"%>  
+			<%end%>
+>>>>>>> 81e81b17861dfe97be6b6091ae1782bdef410761
 		  	<li role="presentation" style=" float: right;"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
 		  	<li role="presentation" class="active" style="margin-top: 11px; float: right;"><strong class = 'navbar-link' ><%= current_user.email %></strong></li>
 		  	
@@ -31,7 +40,7 @@
 	  <li role="presentation" style=" float: right;"><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
 <% end %>  
 </ul>
- 
+
 <%= yield %>
 
 </body>

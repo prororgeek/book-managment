@@ -33,9 +33,9 @@
   	<h4 style="margin-top: 40px;">
   	<% if current_user.present? %>
   	<% if current_user.id == 1 %>
-	  	<%= link_to '', show_book_book_path(book), :class => "show_book" %>
-	    <%= link_to '', edit_book_path(:id => book.id), :class => "edit_book_link" %> 
-	    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_book"%>
+	  	<%= link_to '', show_book_book_path(book), :class => "show_book", :title => 'show book detail' %>
+	    <%= link_to '', edit_book_path(:id => book.id), :class => "edit_book_link" , :title => 'update book'%> 
+	    <%= link_to '', { action: :destroy, id: book.id }, method: :delete, data: { confirm: 'Are you sure?' } , :class => "delete_book" , :title => 'delete book'%>
     <% end %>
     <% end %>
     </h4>

@@ -81,6 +81,7 @@
 }
 .navbar-link{
 	color: white !important;
+  height: 50px;
 }
 .navbar-link:hover{
 	color: black !important;
@@ -91,7 +92,7 @@
   width: inherit;
   min-width: 220px;
   max-width: 220px;
-  background-color:rgba(249, 249, 249, 0.83);
+  background-color:#ec5e2c;
   float: left;
   height:auto;
   position:relative;
