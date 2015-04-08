@@ -106,8 +106,7 @@
  * --------------------------------------------------
  */
 
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-  }
+.sidebar-offcanvas {
+  position: absolute;
+  top: 0;
 }
